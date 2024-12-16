@@ -75,11 +75,13 @@ formFilter.addEventListener("change", (e) => {
   const valueInput = formFilter.filterName.value.toLowerCase();
   const valueSelect = formFilter.filterType.value;
 
+  console.log(valueSelect);
+
   // FILTRAMOS POR NOMBRE
   const pokemonsFiltered = allPokemons.filter((pokemon) => {
     return (
       pokemon.name.toLowerCase().includes(valueInput) &&
-      pokemon.type.includes(valueSelect)
+      (valueSelect == "" ? true : pokemon.type.includes(valueSelect))
     );
   });
 

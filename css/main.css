@@ -51,12 +51,24 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 10px;
 }
 .pokemons-container h1 {
-  margin-bottom: 30px;
   font-size: 2rem;
 }
+.pokemons-container form h2 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.pokemons-container form input, .pokemons-container form select {
+  font-family: Inter;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  border: 1px solid #777;
+}
 .pokemons-container .list-pokemons {
+  margin-top: 20px;
   width: 100%;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -70,6 +82,9 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 15px;
+}
+.pokemons-container .list-pokemons h1 {
+  color: #111;
 }
 .pokemons-container .list-pokemons > li {
   width: 270px;

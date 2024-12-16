@@ -66,33 +66,22 @@ pokemonTypes.forEach((type) => {
   selectFilter.insertAdjacentHTML("beforeend", item);
 });
 
-// MAJEMOS EL FILTRO DE POKEMON POR TIPO
-selectFilter.addEventListener("change", (e) => {
-  const valueToFilter = e.target.value;
-
-  if (valueToFilter) {
-    const pokemonsFilterByType = allPokemons.filter((pk) => {
-      return pk.type.includes(valueToFilter);
-    });
-    renderPokemons(pokemonsFilterByType);
-  } else {
-    renderPokemons(allPokemons);
-  }
-});
-
-// MANEJAMOS EL FILTRO DE POKEMON POR NOMBRE
-const inputFilter = document.getElementById("filter-input");
-inputFilter.addEventListener("change", (e) => {
-  const input = e.target.value.toLowerCase();
-  console.log(input);
-
-  const pokemonsFilterByName = allPokemons.filter((pokemon) => {
-    return pokemon.name.toLowerCase().includes(input);
-  });
-
-  renderPokemons(pokemonsFilterByName);
-});
-
 // EVITAMOS EL ENVIO DEL FORMULARIO
 const formFilter = document.getElementById("filter-form");
 formFilter.addEventListener("submit", (e) => e.preventDefault());
+
+// MANEJAMOS EL EVENTO CUANDO CAMBIA UN VALOR DEL FORMULARIO
+formFilter.addEventListener("change", (e) => {
+  const valueInput = formFilter.filterName.value.toLowerCase();
+  const valueSelect = formFilter.filterType.value;
+
+  // FILTRAMOS POR NOMBRE
+  const pokemonsFiltered = allPokemons.filter((pokemon) => {
+    return (
+      pokemon.name.toLowerCase().includes(valueInput) &&
+      pokemon.type.includes(valueSelect)
+    );
+  });
+
+  renderPokemons(pokemonsFiltered);
+});

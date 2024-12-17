@@ -8,7 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="css/main.css">
+    
     <script type="module" src="js/main.js"></script>
 </head>
 <body>
@@ -28,6 +31,84 @@
         <ul class="list-pokemons" id="list-pokemons">
             
         </ul>
+    </section>
+    
+    <section class="pokemon-attrs" id="modal">
+        <article>
+            <header>
+                <div class="info">
+                    <small id="info-id">0001</small>
+                    <h1 id="info-name">Bulbasaur</h1>
+                    <h3>Tipo:</h3>
+                    <ul id="info-types">
+                        <li class="type grass">GRASS</li>
+                        <li class="type poison">POISON</li>
+                    </ul>
+                    <h3>Fortalezas:</h3>
+                    <ul id="info-r-types">
+                        <li class="type grass">GRASS</li>
+                        <li class="type poison">POISON</li>
+                    </ul>
+                    <h3>Debilidades:</h3>
+                    <ul id="info-w-types">
+                        <li class="type grass">GRASS</li>
+                        <li class="type electric">ELECTRIC</li>
+                        <li class="type grass">GRASS</li>
+                        <li class="type poison">POISON</li>
+                    </ul>
+                </div>
+                <img src="https://img.pokemondb.net/artwork/large/bulbasaur.jpg" alt="" id="info-img">
+            </header>
+            <div class="stats">
+                <ul class="list-stats">
+                    <li>
+                        <span id="sp-hp">000</span>
+                        <label>
+                            HP
+                            <i class="fa-solid fa-heart"></i>
+                        </label>
+                    </li>
+                    <li>
+                        <span id="sp-att">000</span>
+                        <label>
+                            ATAQUE
+                            <i class="fa-solid fa-hand-back-fist"></i>
+                        </label>
+                    </li>
+                    <li>
+                        <span id="sp-def">000</span>
+                        <label>
+                            DEFENSA
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </label>
+                    </li>
+                    <li>
+                        <span id="sp-satt">000</span>
+                        <label>
+                            ATAQUE CRIT.
+                            <i class="fa-solid fa-fire-flame-curved"></i>
+                        </label>
+                    </li>
+                    <li>
+                        <span id="sp-sdef">000</span>
+                        <label>
+                            DEFENSA CRIT.
+                            <i class="fa-solid fa-fire-flame-curved"></i>
+                        </label>
+                    </li>
+                    <li>
+                        <span id="sp-spd">000</span>
+                        <label>
+                            VELOCIDAD
+                            <i class="fa-solid fa-bolt"></i>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <span class="icon" id="icon-close">
+            <i class="fa-solid fa-circle-xmark"></i>
+        </span>
     </section>
 </body>
 </html>

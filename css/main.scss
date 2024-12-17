@@ -9,7 +9,7 @@
     box-sizing: border-box;
 }
 
-header{
+body > header{
     width: 100%;
     padding: 10px;
     background-color: #222;
@@ -63,6 +63,7 @@ body{
 
         h1{
             color: #111;
+            text-align: center;
         }
 
         >li{
@@ -73,6 +74,13 @@ body{
             border-radius: 6px;
             display: flex;
             flex-direction: column;
+            transition: all .3s ease;
+            cursor: pointer;
+
+            &:hover{
+                transform: scale(1.05);
+                z-index: 3;
+            }
 
             img{
                 width: 100%; 
@@ -99,35 +107,185 @@ body{
                     flex-wrap: wrap;
                     list-style-type: none;
                     gap: 5px;
-                    li{
-                        color: #fff;
-                        background-color:#aaa;
-                        border: 1px solid #0002;
-                        font-weight: bold;
-                        font-size: .8rem;
-                        padding: 5px 10px;
-                        border-radius: 3px;
+                    
+                }
+            }
+        }
+    }
+}
 
-                        &.grass{background: #7c5;}
-                        &.poison{background: #7a2edf;}
-                        &.steel{background: #aaa;}
-                        &.water{background: #43b3f0;}
-                        &.bug{background: #377e56;}
-                        &.dragon{background: #6c10be;}
-                        &.electric{background: #ffc400;}
-                        &.ghost{background: #6347ff;}
-                        &.fire{background: #ff2929;}
-                        &.fairy{background: #d35beb;}
-                        &.ice{background: #5ddad3;}
-                        &.fighting{background: #962d2d;}
-                        &.normal{background: #bebebe;}
-                        &.psychic{background: #ff289e;}
-                        &.rock{background: #773b31;}
-                        &.dark{background: #3a1408;}
-                        &.ground{background: #ffae45;}
-                        &.flying{background: #5093ca;}
+li.type{
+    color: #fff;
+    background-color:#aaa;
+    border: 1px solid #0002;
+    font-weight: bold;
+    font-size: .8rem;
+    padding: 5px 10px;
+    border-radius: 3px;
+
+    &.grass{background: #7c5;}
+    &.poison{background: #7a2edf;}
+    &.steel{background: #aaa;}
+    &.water{background: #43b3f0;}
+    &.bug{background: #377e56;}
+    &.dragon{background: #6c10be;}
+    &.electric{background: #ffc400;}
+    &.ghost{background: #6347ff;}
+    &.fire{background: #ff2929;}
+    &.fairy{background: #d35beb;}
+    &.ice{background: #5ddad3;}
+    &.fighting{background: #962d2d;}
+    &.normal{background: #bebebe;}
+    &.psychic{background: #ff289e;}
+    &.rock{background: #773b31;}
+    &.dark{background: #3a1408;}
+    &.ground{background: #ffae45;}
+    &.flying{background: #5093ca;}
+}
+
+.pokemon-attrs{
+    position: fixed;
+    top: 0;left: 0;
+    z-index: 10;
+
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        #000a, #000e
+    );
+    backdrop-filter: blur(5px);
+    display: none;
+
+    .icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: all .3s ease;
+        color: #aaa;
+
+        &:hover{color: #ddd;}
+    }
+
+    
+    article{
+        max-width: 600px;
+        width: 95%;
+        padding: 1rem;
+        padding-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        border-radius: 6px;
+        color: #000;
+    
+        header{
+            display: flex;
+            justify-content: space-between;
+            .info{
+                padding: 20px;
+                small{font-size: 1em; font-weight: bold;}
+                h1{
+                    font-size: 2.8em;
+                    margin-bottom: 5px; 
+                }
+                ul{
+                    display: flex;
+                    flex-wrap: wrap;
+                    padding-top: 5px;
+                    list-style-type: none;
+                    display: flex;
+                    gap: 5px;
+
+                    margin-bottom: 8px;
+                }
+            }
+            img{
+                width: 50%;
+                object-fit: contain;
+            }
+        }
+
+        .stats{
+            width: 100%;
+            padding: 0 20px;
+
+            .list-stats{
+                width: 100%;
+                gap: 20px;
+                row-gap: 10px;
+                list-style-type: none;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                
+                li{
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    
+                    span{
+                        width: 100%;
+                        text-align: center;
+                        border-radius: 3px;
+                        background: #bbb;
+                        padding: 5px 10px;
+                        font-size: 1.5rem;
+                        font-weight: bold;
+                    }
+
+                    label{
+                        font-weight: bold;
+                        font-size: .7rem;
                     }
                 }
+            }
+        }
+    }
+}
+
+.pokemon-attrs.active{
+    display: flex;
+}
+
+@media screen and (max-width: 500px){
+    .pokemon-attrs{
+        font-size: 12px;
+    }
+
+    .pokemon-attrs article {
+        header{
+            position: relative;
+            flex-direction: column-reverse;
+            align-items: center;
+            
+            .info{
+                padding-top: 160px;
+                z-index: 5;
+
+                h1{
+                    text-shadow: 0 0 5px #fff;
+                }
+            }
+
+            img{
+                position: absolute;
+                top: 0;right: 10px;
+                width: 100%;
+                max-width: 250px;
             }
         }
     }

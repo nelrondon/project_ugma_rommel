@@ -211,7 +211,8 @@ li.type{
                 }
             }
             img{
-                width: 50%;
+                max-width: 250px;
+                height: 300px;
                 object-fit: contain;
             }
         }

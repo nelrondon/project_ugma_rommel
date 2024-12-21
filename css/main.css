@@ -311,7 +311,8 @@ li.type.flying {
   margin-bottom: 8px;
 }
 .pokemon-attrs article header img {
-  width: 50%;
+  max-width: 250px;
+  height: 300px;
   -o-object-fit: contain;
      object-fit: contain;
 }
